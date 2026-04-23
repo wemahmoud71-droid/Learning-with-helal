@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Learning with Helal - المنصة التعليمية والترفيهية الأولى</title>
+    <meta name="description" content="موقع Learning with Helal لمشاركة الملفات، الامتحانات، الأفلام، والموسيقى. ارفع ملفاتك واطلب المحتوى اللي محتاجه.">
+    <meta name="keywords" content="تعليم, أفلام, هلال, امتحانات, ثانوية عامة, تحميل كتب, مارفل">
+    
+    <meta property="og:title" content="Learning with Helal">
+    <meta property="og:description" content="حمل واطلب كل اللي محتاجه من كورسات، أفلام، وملفات بسهولة.">
+    <meta property="og:image" content="link-to-your-logo.jpg"> 
+
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --panel-bg: #1e1e1e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary-color);
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .section {
+            background-color: var(--panel-bg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        input, button, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Learning with Helal</h1>
+        <p>مرحباً بك في منصتك الشاملة لكل حاجة</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="section" id="user-section">
+            <h2>رفع ملف جديد (بانتظار موافقة المشرف)</h2>
+            <input type="text" placeholder="اسم الملف (مثال: امتحان شامل عربي / فيلم مارفل)">
+            <input type="file" id="file-upload">
+            <button onclick="alert('تم إرسال الملف للمشرف للمراجعة!')">رفع الملف</button>
+        </div>
+
+        <div class="section" id="requests-section">
+            <h2>لوحة الطلبات</h2>
+            <p>مش لاقي اللي بتدور عليه؟ اطلبه هنا!</p>
+            <textarea placeholder="مثال: محتاج ملخص قوانين الفيزياء أو فيلم سبايدر مان الجديد..." rows="3"></textarea>
+            <button>إرسال الطلب</button>
+            <hr>
+            <h3>الطلبات الحالية:</h3>
+            <ul>
+                <li>طلب: امتحان شامل عربي (تم التنفيذ ✔️)</li>
+                <li>طلب: فيلم مارفل Infinity War (جاري الرفع ⏳)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>دخول المشرف (Admin)</h2>
+            <input type="password" id="admin-password" placeholder="أدخل كود المشرف السري">
+            <button onclick="checkAdmin()">تسجيل دخول المشرف</button>
+        </div>
+
+        <div class="section hidden" id="admin-panel">
+            <h2>لوحة تحكم المشرف - مرحباً يا هلال</h2>
+            
+            <div class="stats">
+                <div>👁️ الزيارات: 1,204</div>
+                <div>⬇️ التحميلات: 850</div>
+                <div>⏳ ملفات بانتظار الموافقة: 3</div>
+            </div>
+
+            <hr>
+            <h3>إدارة المستخدمين</h3>
+            <input type="text" placeholder="اسم المستخدم أو الإيميل لحظره">
+            <button style="background-color: #dc3545;">حظر المستخدم من الرفع</button>
+            
+            <hr>
+            <h3>ملفات بانتظار المراجعة</h3>
+            <ul>
+                <li>مذكرة كيمياء - <button style="width:auto; background-color: #28a745;">موافقة</button> <button style="width:auto; background-color: #dc3545;">رفض</button></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function checkAdmin() {
+            var pass = document.getElementById('admin-password').value;
+            // الكود السري الخاص بك
+            if(pass === 'Dex_Naight773@#$') {
+                document.getElementById('admin-panel').classList.remove('hidden');
+                alert('تم تسجيل الدخول بنجاح! مرحباً بك في لوحة التحكم.');
+                document.getElementById('admin-password').value = ''; // مسح كلمة المرور بعد الدخول
+            } else {
+                alert('كود المشرف غير صحيح!');
+            }
+        }
+    </script>
+</body>
+</html>
